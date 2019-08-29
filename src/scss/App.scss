@@ -1,8 +1,26 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+
+$brand-color: #75caec;
+
+@mixin transition-style($transition) {
+    -webkit-transition: $transition;
+    -o-transition:  $transition;
+    -ms-transition:  $transition;
+    -moz-transition:  $transition;
+    transition:  $transition;
+}
+
+canvas {
+    position: absolute;
+    left: 0;
+}
+
 .App {
     text-align: center;
 }
+
 .App-header {
-    background-color: #282c34;
+    background: #3b4769;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,8 +34,78 @@
         padding: 10px 20px 15px;
     }
     
-    & a {
+    & .links {
+        cursor: pointer;
+        z-index: 1;
         color: white;
         font-size: 40px;
+        
+        & a {
+            margin-right: 35px;
+            color: white;
+        }
     }
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+}
+
+#name, #email, #message {
+    margin-top: 20px;
+    border: 0.5px solid #d2d2d2;
+    border-radius: 5px;
+    box-shadow: none;
+
+    &::-webkit-input-placeholder {
+      color: #898989;
+    }
+}
+
+input {
+    min-height: 3em;
+}
+
+textarea {
+    min-height: 10em;
+}
+
+.submit-button {
+    outline: 0;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 12px;
+    min-width: 200px;
+    border-radius: 2px;
+    text-align: center;
+    border: 2px solid $brand-color;
+    font-size: 1em;
+    color: $brand-color;
+    background-color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include transition-style(all 0.3s ease-in-out);
+
+    &:hover {
+        background-color: $brand-color;
+        color: white;
+        @include transition-style(all 0.3s ease-in-out);
+    }
+}
+
+.sent {
+    color: green;
+    border: 2px solid green;
+
+    &:hover {
+        background-color: white;
+        color: green;
+    }
+}
+
+.disabled {
+    cursor: now-allowed;
+    opacity: 0.5;
 }
