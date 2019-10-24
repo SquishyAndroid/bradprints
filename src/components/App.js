@@ -8,10 +8,10 @@ export default class App extends Component {
     state = {
         isOpen: false
     }
-    
+
     handleOpen = () => this.setState({ isOpen: true });
     handleClose = () => this.setState({ isOpen: false });
-    
+
     render() {
         return (
             <Fragment>
@@ -19,7 +19,7 @@ export default class App extends Component {
                     isOpen={this.state.isOpen}
                     handleClose={this.handleClose}
                 />
-                
+
                 <div className="App">
                     <Particles params={params}/>
                     <header className="App-header">
@@ -36,5 +36,5 @@ export default class App extends Component {
                 </div>
             </Fragment>
         )
-    }    
+    }
 }
